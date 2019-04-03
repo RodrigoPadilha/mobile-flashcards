@@ -1,6 +1,6 @@
 os usuários poderão criar diferentes categorias de flashcards chamadas de "baralhos", 
 adicionar flashcards a esses baralhos, 
-fazer os quizes nestes baralhos.
+fazer os quizes nestes baralhos. 
 
 # Requisistos específicos
 
