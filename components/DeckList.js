@@ -1,28 +1,41 @@
 import React, { Component } from 'react';
 import { AppRegistry, FlatList, StyleSheet, Text, View } from 'react-native';
 
-export default class DeckList extends Component {
+class DeckList extends Component {
+
+  FlatListItemSeparator = () => <View style={styles.line} />;
+
+  renderItem = (item,styles) => {
+    debugger
+    <Text style={styles.item}>{item.key}</Text>
+  }
+    
   render() {
+    const listItens = [
+      {key: 'Devin'},
+      {key: 'Jackson'},
+      {key: 'James'},
+      {key: 'Joel'},
+      {key: 'John'},
+      {key: 'Jillian'},
+      {key: 'Jimmy'},
+      {key: 'Julie'},      
+    ]
+
     return (
       <View style={styles.container}>
         <FlatList
-          data={[
-            {key: 'Devin'},
-            {key: 'Jackson'},
-            {key: 'James'},
-            {key: 'Joel'},
-            {key: 'John'},
-            {key: 'Jillian'},
-            {key: 'Jimmy'},
-            {key: 'Julie'},
-            
-          ]}
-          renderItem={({item}) => <Text style={styles.item}>{item.key}</Text>}
+          data={listItens}
+          ItemSeparatorComponent={this.FlatListItemSeparator}
+          renderItem={item => this.renderItem(item,styles)} 
+          keyExtractor={item => item.key}
         />
       </View>
     );
   }
 }
+
+export default DeckList 
 
 const styles = StyleSheet.create({
   container: {
@@ -36,5 +49,8 @@ const styles = StyleSheet.create({
   },
 })
 
-// skip this line if using Create React Native App
-AppRegistry.registerComponent('AwesomeProject', () => FlatListBasics);
+        {/*<FlatList
+          data={listItens}
+          ItemSeparatorComponent={this.FlatListItemSeparator}
+          renderItem={({item}) => <Text style={styles.item}>{item.key}</Text>}
+        />*/}
