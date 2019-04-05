@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import AppNavigator from './utils/AppNavigator';
 import DeckList from './components/DeckList/component';
 
 export default class App extends React.Component {
@@ -8,6 +9,7 @@ export default class App extends React.Component {
       <View style={styles.container}>
         <Text>Rodrigo, Parabéns!</Text>
         <DeckList />
+        <AppNavigator />
       </View>
     );
   }

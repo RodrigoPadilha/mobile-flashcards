@@ -1,18 +1,22 @@
 import React, { Component } from 'react';
-import { AppRegistry, FlatList, TouchableOpacity, Text, View } from 'react-native';
+import { FlatList, TouchableOpacity, Text, View } from 'react-native';
 import { Styles } from './style';
+
 
 class DeckList extends React.Component {
 
   selectItem = (data) => console.log("Chamou ", data.key)
-
 
   FlatListItemSeparator = (styles) => <View style={styles.line} />
 
   renderItem = (item, styles) => 
     <TouchableOpacity
       style={styles.list}
-      onPress={() => this.selectItem(item)}>
+      //onPress={() => this.selectItem(item)}>
+      onPress={() => this.props.navigation.navigate(
+        'DeckDetail',
+        {deckKey:item.key}
+        )}>
       <Text style={styles.item}>{item.key}</Text>
     </TouchableOpacity>  
     
