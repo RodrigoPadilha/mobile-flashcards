@@ -1,5 +1,24 @@
-import { createAppContainer, createStackNavigator, StackActions, NavigationActions } from 'react-navigation'; // Version can be specified in package.json
+import { 
+  createAppContainer, 
+  createStackNavigator, 
+  StackActions, 
+  NavigationActions } from 'react-navigation';
 import DeckDetail from '../components/DeckDetail/component'
+import DeckList from '../components/DeckList/component'
+
+const AppNavigator = createStackNavigator(
+  {
+    DeckList: DeckList,  
+    DeckDetail:DeckDetail,
+  },  
+  {
+    initialRouteName: "DeckList"
+  },    
+)
+  
+export default createAppContainer(AppNavigator);
+
+/*
 
 const AppNavigator = createStackNavigator({
     DeckDetail: {
@@ -13,10 +32,9 @@ const AppNavigator = createStackNavigator({
     },
 
   })
-  
-export default createAppContainer(AppNavigator);
 
-/*
+
+
 const AppNavigator = createStackNavigator({
     Home: {
       screen: HomeScreen,

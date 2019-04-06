@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { FlatList, TouchableOpacity, Text, View } from 'react-native';
 import { Styles } from './style';
 
-
 class DeckList extends React.Component {
 
   selectItem = (data) => console.log("Chamou ", data.key)
@@ -22,9 +21,8 @@ class DeckList extends React.Component {
     
   render() {
     const listItens = [{key: 'Devin'},{key: 'Jackson'},{key: 'James'},{key: 'Joel'},{key: 'John'},{key: 'Jillian'},{key: 'Jimmy'},{key: 'Julie'},]
-    debugger
     return (      
-      <View style={Styles.container}>  
+      <View style={Styles.container}>        
         <FlatList
           data={listItens}
           ItemSeparatorComponent={() => this.FlatListItemSeparator(Styles)}
