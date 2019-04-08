@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 export const Styles = StyleSheet.create({
 
   container: {    
-    backgroundColor: '#ee7700',
+    backgroundColor: '#ee5500',
     flex: 1, 
     alignItems: 'center', 
     justifyContent: 'center',
@@ -19,9 +19,6 @@ export const Styles = StyleSheet.create({
   },
   btnText:{
     color:'#fff'
-  },
-  btnQuiz:{
-    marginTop:10
   }
 
 });

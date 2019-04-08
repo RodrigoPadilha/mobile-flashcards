@@ -4,18 +4,15 @@ import { Styles } from './style';
 
 class DeckList extends React.Component {
 
-  //selectItem = (data) => console.log("Chamou ", data.key)
-
   FlatListItemSeparator = () => <View style={Styles.line} />
 
   renderItem = (item) => 
     <TouchableOpacity
       style={Styles.list}
-      //onPress={() => this.selectItem(item)}>
       onPress={() => this.props.navigation.navigate(
         'DeckDetail',
         {deckKey:item.key}
-        )}>
+      )}>
       <Text style={Styles.item}>{item.key}</Text>
     </TouchableOpacity>  
     

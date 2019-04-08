@@ -1,14 +1,36 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, TouchableHighlight } from 'react-native';
 import { Styles } from './style';
 
 class DeckDetail extends React.Component {  
   render() {    
     const {navigation} = this.props
-    return (      
+    const deckKey = navigation.getParam('deckKey')
+    return (
       <View style={Styles.container}>        
         <Text>Details Screen </Text>
-        <Text>Param: {navigation.getParam('deckKey')}</Text>
+        <Text>Param: {deckKey}</Text>
+
+        <TouchableHighlight
+          style={Styles.btn}
+          onPress={() => this.props.navigation.navigate(
+            'NewCard',
+            {deckKey:deckKey}
+          )}
+          underlayColor='#e65100'>
+          <Text style={Styles.btnText}>Add Card</Text>
+        </TouchableHighlight>
+
+        <TouchableHighlight
+          style={[Styles.btn,Styles.btnQuiz]}
+          onPress={() => this.props.navigation.navigate(
+            'Quiz',
+            {deckKey:deckKey}
+          )}
+          underlayColor='#e65100'>
+          <Text style={Styles.btnText}>Iniciar Quiz</Text>
+        </TouchableHighlight>
+
       </View>
     );
   }  
