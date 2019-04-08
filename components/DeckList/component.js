@@ -4,29 +4,29 @@ import { Styles } from './style';
 
 class DeckList extends React.Component {
 
-  selectItem = (data) => console.log("Chamou ", data.key)
+  //selectItem = (data) => console.log("Chamou ", data.key)
 
-  FlatListItemSeparator = (styles) => <View style={styles.line} />
+  FlatListItemSeparator = () => <View style={Styles.line} />
 
-  renderItem = (item, styles) => 
+  renderItem = (item) => 
     <TouchableOpacity
-      style={styles.list}
+      style={Styles.list}
       //onPress={() => this.selectItem(item)}>
       onPress={() => this.props.navigation.navigate(
         'DeckDetail',
         {deckKey:item.key}
         )}>
-      <Text style={styles.item}>{item.key}</Text>
+      <Text style={Styles.item}>{item.key}</Text>
     </TouchableOpacity>  
     
   render() {
-    const listItens = [{key: 'Devin'},{key: 'Jackson'},{key: 'James'},{key: 'Joel'},{key: 'John'},{key: 'Jillian'},{key: 'Jimmy'},{key: 'Julie'},]
+    const listItens = [{key: 'Julia'},{key: 'Mariana'},{key: 'Ro'},{key: 'Joel'},{key: 'John'},{key: 'Jillian'},{key: 'Jimmy'},{key: 'Julie'},]
     return (      
       <View style={Styles.container}>        
         <FlatList
           data={listItens}
-          ItemSeparatorComponent={() => this.FlatListItemSeparator(Styles)}
-          renderItem={({item}) => this.renderItem(item,Styles)}
+          ItemSeparatorComponent={() => this.FlatListItemSeparator()}
+          renderItem={({item}) => this.renderItem(item)}
           keyExtractor={(item) => item.key}
         />
       </View>

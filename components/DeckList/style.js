@@ -32,7 +32,7 @@ export const Styles = StyleSheet.create({
     paddingVertical: 5,
     margin: 3,
     flexDirection: "row",
-    backgroundColor: "#00ff00",
+    backgroundColor: "#00ffee",
     justifyContent: "flex-start",
     alignItems: "center",
     zIndex: -1
@@ -44,7 +44,7 @@ export const Styles = StyleSheet.create({
     fontSize: 12
     },
   line: {
-    height: 0.5,
+    height: 2,
     width: "100%",
     backgroundColor:"rgba(255,255,255,0.5)"
   },

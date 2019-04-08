@@ -1,18 +1,25 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import AppNavigator from './utils/AppNavigator';
-//import DeckList from './components/DeckList/component';
+import TabNavigator from './utils/TabNavigator'
+import TabNavigatorBottom from './utils/TabNavigatorBottom'
 
 export default class App extends React.Component {
   render() {
-    return (      
-      <AppNavigator />              
+    return (
+      
+        <TabNavigatorBottom />
+      
     );
   }
 }
 
 
 /*
+<AppNavigator />
+<TabNavigator />
+
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
