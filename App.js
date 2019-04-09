@@ -3,35 +3,17 @@ import { StyleSheet, Text, View } from 'react-native';
 import AppNavigator from './utils/AppNavigator';
 import TabNavigator from './utils/TabNavigator'
 import TabNavigatorBottom from './utils/TabNavigatorBottom'
+import { Provider } from 'react-redux'
+import  deckReducer from './redux/reducers/DeckReducer'
+import { createStore } from 'redux';
 
 export default class App extends React.Component {
   render() {
     return (
-      
+      //ToDo mudar o nome do Reducer???
+      <Provider store={createStore(deckReducer)}>
         <TabNavigatorBottom />
-      
+      </Provider>
     );
   }
 }
-
-
-/*
-<AppNavigator />
-<TabNavigator />
-
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
-
-return (
-  <View style={styles.container}>
-    <AppNavigator />        
-  </View>
-);
-*/
