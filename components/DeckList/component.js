@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { FlatList, TouchableOpacity, Text, View } from 'react-native';
 import { Styles } from './style';
+import { connect } from 'react-redux'
 
 class DeckList extends React.Component {
 
@@ -31,4 +32,9 @@ class DeckList extends React.Component {
   }
 }
 
+const mapStateToProps = (state) => ({
+  storeDeck: state.deckReducer,
+});
+
+//export default connect(mapStateToProps) (DeckList)
 export default DeckList 

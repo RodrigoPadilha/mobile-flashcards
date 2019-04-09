@@ -10,7 +10,7 @@ export function addDeck(deck){
 
 export function removeDeck(keyDeck){
     return {
-        type: ADD_DECK,
+        type: REMOVE_DECK,
         keyDeck
     }
 }
