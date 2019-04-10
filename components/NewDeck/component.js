@@ -1,12 +1,21 @@
 import React from 'react';
 import { StyleSheet, Text, TextInput, TouchableHighlight, View } from 'react-native';
 import { Styles } from './style';
+import { Button } from '../UI/component';
 
 class NewDeck extends React.Component {  
 
   state = { 
     text: 'Useless Placeholder' 
   }
+
+  teste = () =>{ console.log("Chamou") }
+    // this.props.navigation.navigate(
+    //   'Quiz',
+    //   console.log("Adicionar no store e/ou no defaultStore")
+    // )
+
+
   render() {    
     return (      
       <View style={Styles.container}>        
@@ -27,6 +36,8 @@ class NewDeck extends React.Component {
           <Text style={Styles.btnText}>Add Deck</Text>
         </TouchableHighlight>
         
+        <Button label='Rodrigo' onPress={this.teste}/>
+
       </View>
     );
   }  
