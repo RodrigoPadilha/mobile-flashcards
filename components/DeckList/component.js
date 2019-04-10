@@ -36,5 +36,5 @@ const mapStateToProps = (state) => ({
   storeDeck: state.deckReducer,
 });
 
-//export default connect(mapStateToProps) (DeckList)
-export default DeckList 
+export default connect(mapStateToProps) (DeckList)
+//export default DeckList
