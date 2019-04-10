@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableHighlight } from 'react-native';
+import { StyleSheet, Text, View, TouchableHighlight, TextInput } from 'react-native';
 import { Styles } from './style';
 
 class NewCard extends React.Component {  
@@ -8,8 +8,12 @@ class NewCard extends React.Component {
     const deckKey = navigation.getParam('deckKey')
     return (
         <View style={Styles.container}>        
-        <Text>New Card neste cara aqui: {deckKey} </Text>
-
+          <Text>New Card neste cara aqui: {deckKey} </Text>
+          <TextInput
+            style={{height: 40, borderColor: 'gray', borderWidth: 1}}
+            onChangeText={(text) => this.setState({text})}
+            value={this.state.text}
+          />
         </View>
     );
   }

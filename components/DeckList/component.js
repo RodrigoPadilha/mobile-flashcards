@@ -37,4 +37,3 @@ const mapStateToProps = (state) => ({
 });
 
 export default connect(mapStateToProps) (DeckList)
-//export default DeckList
