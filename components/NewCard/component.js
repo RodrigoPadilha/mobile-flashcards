@@ -3,7 +3,12 @@ import { StyleSheet, Text, View, TouchableHighlight, TextInput } from 'react-nat
 import { Styles } from './style';
 
 class NewCard extends React.Component {  
-  render() {    
+
+  state = { 
+    text2: 'Useless Placeholder' 
+  }
+
+  render() {        
     const {navigation} = this.props
     const deckKey = navigation.getParam('deckKey')
     return (
@@ -11,8 +16,8 @@ class NewCard extends React.Component {
           <Text>New Card neste cara aqui: {deckKey} </Text>
           <TextInput
             style={{height: 40, borderColor: 'gray', borderWidth: 1}}
-            onChangeText={(text) => this.setState({text})}
-            value={this.state.text}
+            onChangeText={(text2) => this.setState({text2})}
+            value={this.state.text2}
           />
         </View>
     );
