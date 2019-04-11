@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, TextInput, TouchableHighlight, View } from 'react-native';
 import { Styles } from './style';
-import { Button } from '../UI/component';
+import { BtnDefault, TxtInput } from '../UI/component';
 
 class NewDeck extends React.Component {  
 
@@ -9,24 +9,25 @@ class NewDeck extends React.Component {
     text: 'Useless Placeholder' 
   }
 
-  teste = () =>{   
+  teste = () => {   
     this.props.navigation.navigate(
       'Quiz',
        console.log("Adicionar no store e/ou no defaultStore")
     )
   }
 
+  onChange = (text) => {
+    this.setState({text})
+  }
+
   render() {    
     return (      
       <View style={Styles.container}>        
         <Text> Qual o título do seu novo Deck?</Text>  
-        <TextInput
-          style={Styles.lblTitulo}
-          onChangeText={(text) => this.setState({text})}
-          value={this.state.text}/>      
-        
-        <Button label='Rodrigo' onPress={this.teste}/>
+        <TxtInput hint='Nome novo Deck' onChangeText={this.onChange}/>              
+        <BtnDefault label='Rodrigo' onPress={this.teste}/>
 
+        <Text>{this.state.text}</Text>
       </View>
     );
   }  

@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { orange } from '../../utils/colors'
 
 export const Styles = StyleSheet.create({
   btn:{
@@ -13,5 +14,14 @@ export const Styles = StyleSheet.create({
   btnText:{
     color:'#fff'
   },
+
+  textInput:{
+    width: 200,
+    height: 40,
+    paddingLeft: 6,
+    borderColor: orange,
+    borderWidth: 2,
+    borderRadius:5,
+  }
 
 })

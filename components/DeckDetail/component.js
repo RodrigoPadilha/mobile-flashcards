@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { Styles } from './style';
-import { Button } from '../UI/component'
+import { BtnDefault } from '../UI/component'
 
 class DeckDetail extends React.Component {  
 
@@ -27,11 +27,11 @@ class DeckDetail extends React.Component {
         <Text>Details Screen </Text>
         <Text>Param: {deckKey}</Text>
 
-        <Button 
+        <BtnDefault 
           label='Add Card' 
           onPress={this.addNewCard(deckKey)}/>
         
-        <Button 
+        <BtnDefault 
           label='Inicia Quiz' 
           onPress={this.startQuiz}/>
 
