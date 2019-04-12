@@ -2,8 +2,13 @@ import React, { Component } from 'react';
 import { FlatList, TouchableOpacity, Text, View } from 'react-native';
 import { Styles } from './style';
 import { connect } from 'react-redux'
+import { loadDecksFromStorage } from '../../redux/actions/DeckAction'
 
 class DeckList extends React.Component {
+
+  componentDidMount(){
+    this.props.listOfDecks();
+  }
 
   FlatListItemSeparator = () => <View style={Styles.line} />
 
@@ -18,11 +23,11 @@ class DeckList extends React.Component {
     </TouchableOpacity>  
     
   render() {
-    const listItens = [{key: 'Julia'},{key: 'Mariana'},{key: 'Ro'},{key: 'Joel'},{key: 'John'},{key: 'Jillian'},{key: 'Jimmy'},{key: 'Julie'},]
+    const { deckList } = this.props
     return (      
       <View style={Styles.container}>        
         <FlatList
-          data={listItens}
+          data={deckList}
           ItemSeparatorComponent={() => this.FlatListItemSeparator()}
           renderItem={({item}) => this.renderItem(item)}
           keyExtractor={(item) => item.key}
@@ -32,8 +37,12 @@ class DeckList extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => ({
-  storeDeck: state.deckReducer,
+const mapStateToProps = (state,props) => ({
+  deckList: state.storeDecks.deckList,
 });
 
-export default connect(mapStateToProps) (DeckList)
+const mapDispatchToProps = (dispatch) => ({     
+  listOfDecks: () => dispatch(loadDecksFromStorage()),          
+})
+
+export default connect(mapStateToProps,mapDispatchToProps)(DeckList);

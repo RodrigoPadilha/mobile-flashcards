@@ -1,21 +1,29 @@
-import { REMOVE_DECK, ADD_DECK } from '../actions/DeckActions'
+import { 
+    LOAD_ALL_DECKS,
+    REMOVE_DECK, 
+    ADD_DECK 
+} from '../actions/DeckAction'
 
 const initialPostState = {
-    deckList:[],    
+    deckList:[],        
  }
 
-//ToDo mudar o nome do Reducer???
-function deckReducer(state = initialPostState, action){
+ export const deckReducer = (state = initialPostState, action) => {
 
     switch(action.type){
+        case LOAD_ALL_DECKS:
+            return {
+                deckList: action.allDecks
+            }
+
         case REMOVE_DECK:
             return {}
+
         case ADD_DECK:
             return {}
+
         default:
             return state
     }
 
 }
-
-export default deckReducer
