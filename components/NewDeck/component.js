@@ -15,10 +15,10 @@ class NewDeck extends React.Component {
   newDeck = () => {   
     this.props.addDeck({key:this.state.descNewDeck})
     /*
-    this.props.navigation.navigate(
-      'Quiz',
-       console.log("Adicionar no store e/ou no defaultStore")
-    )
+      this.props.navigation.navigate(
+        'Quiz',
+        console.log("Adicionar no store e/ou no defaultStore")
+      )
     */
   }
 

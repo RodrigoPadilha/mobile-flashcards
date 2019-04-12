@@ -10,7 +10,7 @@ import { BtnDefault, TxtInput } from '../UI/component';
 class NewCard extends React.Component {  
 
   state = { 
-    descNewCard: 'New Card' 
+    descNewCard: 'Novo Cartão' 
   }
 
   onChange = (descNewCard) => {
@@ -29,7 +29,7 @@ class NewCard extends React.Component {
         <View style={Styles.container}>        
           <Text>New Card neste cara aqui: {deckKey} </Text>
           <TxtInput hint='Nome novo Card' onChangeText={this.onChange}/>              
-          <BtnDefault label='NOVO CARTÃO' onPress={this.newCard}/>
+          <BtnDefault label='CONFIRMAR' onPress={this.newCard}/>
         </View>
     );
   }
