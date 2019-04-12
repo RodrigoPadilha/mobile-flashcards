@@ -13,10 +13,12 @@ class DeckDetail extends React.Component {
   }
 
   addNewCard = (deckKey) => {
-    this.props.navigation.navigate(
-      'NewCard',
-      {deckKey:deckKey}
-    )
+    return () => {
+      this.props.navigation.navigate(
+        'NewCard',
+        {deckKey:deckKey}
+      )
+    }
   }
 
   render() {    
