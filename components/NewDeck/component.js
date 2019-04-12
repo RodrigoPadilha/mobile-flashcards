@@ -1,23 +1,29 @@
 import React from 'react';
-import { StyleSheet, Text, TextInput, TouchableHighlight, View } from 'react-native';
+import { connect } from 'react-redux'
+
+import { Text, View } from 'react-native';
 import { Styles } from './style';
 import { BtnDefault, TxtInput } from '../UI/component';
+import { addDeck } from '../../redux/actions/DeckAction'
 
 class NewDeck extends React.Component {  
 
   state = { 
-    text: 'Useless Placeholder' 
+    descNewDeck: 'Novo Deck' 
   }
 
-  teste = () => {   
+  newDeck = () => {   
+    this.props.addDeck({key:this.state.descNewDeck})
+    /*
     this.props.navigation.navigate(
       'Quiz',
        console.log("Adicionar no store e/ou no defaultStore")
     )
+    */
   }
 
-  onChange = (text) => {
-    this.setState({text})
+  onChange = (descNewDeck) => {
+    this.setState({descNewDeck})
   }
 
   render() {    
@@ -25,16 +31,21 @@ class NewDeck extends React.Component {
       <View style={Styles.container}>        
         <Text> Qual o título do seu novo Deck?</Text>  
         <TxtInput hint='Nome novo Deck' onChangeText={this.onChange}/>              
-        <BtnDefault label='Rodrigo' onPress={this.teste}/>
-
-        <Text>{this.state.text}</Text>
+        <BtnDefault label='CONFIRMAR' onPress={this.newDeck}/>
       </View>
     );
   }  
 }
 
-export default NewDeck
 
+const mapDispatchToProps = (dispatch) => ({   
+  addDeck: (newDeckName) => dispatch(addDeck(newDeckName))  
+})
+
+export default connect(null,mapDispatchToProps)(NewDeck);
+//export default NewDeck
+
+//addDeck
 
 /*
         <TouchableHighlight

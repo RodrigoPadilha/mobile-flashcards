@@ -5,7 +5,7 @@ export const REMOVE_DECK = 'REMOVE_DECK'
 
 export const loadDecksFromStorage = () => {
     return (dispatch, getState) => {
-        dispatch(loadDeckList([{key: 'Julia'},{key: 'Mariana'},{key: 'Ro'},{key: 'Joel'},{key: 'John'},{key: 'Jillian'},{key: 'Jimmy'},{key: 'Julie'}]))
+        dispatch(loadDeckList([{key: 'Cálculo'},{key: 'Orientação à Objetos'}]))
 /*
 Buscar da LocalStorage        
        ServerAPI

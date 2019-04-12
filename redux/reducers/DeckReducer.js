@@ -20,7 +20,10 @@ const initialPostState = {
             return {}
 
         case ADD_DECK:
-            return {}
+            return {
+                ...state,
+                deckList: state.deckList.concat(action.deck)
+            }
 
         default:
             return state
