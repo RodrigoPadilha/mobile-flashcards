@@ -69,4 +69,5 @@ export const Styles = StyleSheet.create({
   },
   number: {fontSize: 14,color: "#000"},
   selected: {backgroundColor: "#FA7B5F"},
+
 });

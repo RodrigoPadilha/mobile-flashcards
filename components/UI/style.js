@@ -22,6 +22,11 @@ export const Styles = StyleSheet.create({
     borderColor: orange,
     borderWidth: 2,
     borderRadius:5,
+  },
+
+  imgIcon:{
+    width: 30,
+    height: 30
   }
 
 })

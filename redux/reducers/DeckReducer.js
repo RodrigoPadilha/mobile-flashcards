@@ -17,7 +17,10 @@ const initialPostState = {
             }
 
         case REMOVE_DECK:
-            return {}
+            return {
+                ...state,
+                deckList: state.deckList.filter(deck => deck.key !== action.deckKey)                
+            }
 
         case ADD_DECK:
             return {

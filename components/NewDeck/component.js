@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux'
+import { v4 } from 'uuid'
 
 import { Text, View } from 'react-native';
 import { Styles } from './style';
@@ -12,8 +13,8 @@ class NewDeck extends React.Component {
     descNewDeck: 'Novo Deck' 
   }
 
-  newDeck = () => {   
-    this.props.addDeck({key:this.state.descNewDeck})
+  newDeck = () => {       
+    this.props.addDeck({key:v4(), deckName:this.state.descNewDeck})
     /*
       this.props.navigation.navigate(
         'Quiz',

@@ -1,8 +1,12 @@
 import React from 'react';
-import { Text, TouchableHighlight, TextInput } from 'react-native';
+import { Text, TouchableHighlight, TextInput,TouchableOpacity, Image } from 'react-native';
 import { Styles } from './style';
 import { purple, orange } from '../../utils/colors'
 
+/**
+ * 
+ * @param {*} props 
+ */
 export const BtnDefault = (props) => {
     return (
         <TouchableHighlight
@@ -14,6 +18,25 @@ export const BtnDefault = (props) => {
     );
 }
 
+/**
+ * 
+ * @param {*} props 
+ */
+export const BtnImage = (props) => {
+    return(
+        <TouchableOpacity 
+            onPress={() => props.onPress()}>            
+            <Image                
+                style={Styles.imgIcon}
+                source={props.srcImage}/>
+        </TouchableOpacity>
+    );
+}
+
+/**
+ * 
+ * @param {*} props 
+ */
 export const TxtInput = (props) => {
     return(
         <TextInput

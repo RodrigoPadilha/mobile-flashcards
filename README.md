@@ -40,3 +40,9 @@ Sua aplicação deve possuir, no mínimo, cinco views.
 - opção de inserir uma pergunta
 - opção de inserir uma resposta
 - btn de enviar a nova pergunta e assim criar um cartão
+
+#Extras
+- Remover Deck
+    - Remover Cartões do respectivo Deck
+- Remover Cartão
+- Gerador de ID

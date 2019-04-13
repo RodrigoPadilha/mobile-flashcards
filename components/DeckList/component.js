@@ -1,13 +1,22 @@
 import React, { Component } from 'react';
-import { FlatList, TouchableOpacity, Text, View } from 'react-native';
+import { FlatList, TouchableOpacity, Text, View, Image } from 'react-native';
 import { Styles } from './style';
 import { connect } from 'react-redux'
-import { loadDecksFromStorage } from '../../redux/actions/DeckAction'
+import { loadDecksFromStorage, deleteDeckFromStorage } from '../../redux/actions/DeckAction'
+import { BtnImage } from '../UI/component';
+import ic_delete from '../../img/ic_delete.png';
+
 
 class DeckList extends React.Component {
 
   componentDidMount(){
     this.props.listOfDecks();
+  }
+
+  deleteDeck = (deckKey) => {
+    return () => {
+      this.props.deleteDeck(deckKey)   
+    }
   }
 
   FlatListItemSeparator = () => <View style={Styles.line} />
@@ -19,7 +28,8 @@ class DeckList extends React.Component {
         'DeckDetail',
         {deckKey:item.key}
       )}>
-      <Text style={Styles.item}>{item.key}</Text>
+      <Text style={Styles.item}>{item.deckName}</Text>      
+      <BtnImage srcImage={require('../../img/ic_delete.png')} onPress={this.deleteDeck(item.key)}/>
     </TouchableOpacity>  
     
   render() {
@@ -42,7 +52,8 @@ const mapStateToProps = (state,props) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({     
-  listOfDecks: () => dispatch(loadDecksFromStorage()),          
+  listOfDecks: () => dispatch(loadDecksFromStorage()),   
+  deleteDeck: (deckKey) => dispatch(deleteDeckFromStorage(deckKey))       
 })
 
 export default connect(mapStateToProps,mapDispatchToProps)(DeckList);
