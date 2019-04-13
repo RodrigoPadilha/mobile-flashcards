@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { FlatList, TouchableOpacity, Text, View, Image } from 'react-native';
-import { Styles } from './style';
 import { connect } from 'react-redux'
+
 import { loadDecksFromStorage, deleteDeckFromStorage } from '../../redux/actions/DeckAction'
+import { Styles } from './style';
 import { BtnImage } from '../UI/component';
-import ic_delete from '../../img/ic_delete.png';
 
 
 class DeckList extends React.Component {

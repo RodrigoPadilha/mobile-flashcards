@@ -12,7 +12,9 @@ export const cardReducer = (state = initialPostState, action) => {
 
     switch(action.type){
         case LOAD_CARDS:
-            return {}
+            return {
+                cardList: action.cards
+            }
 
         case REMOVE_CARD:
             return {}
