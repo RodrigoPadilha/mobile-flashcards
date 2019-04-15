@@ -6,10 +6,16 @@ export const ADD_CARD = 'ADD_CARD'
 
 export const loadCardsFromStorage = (deckKey) => {
     return (dispatch, getState) => {
-        dispatch(loadCards([{key:v4(),question:'Quem Descobriu o Brasil'},{key:v4(),question:'Quem Descobriu o Brasil'}]))
+        dispatch(
+            loadCards([
+                {key:v4(),question:'Quem Descobriu o Brasil'},
+                {key:v4(),question:'O resultado de 4x4 é:'}
+            ])
+        )
     /*
     Buscar da LocalStorage               
     */
+   
     }
 }
 

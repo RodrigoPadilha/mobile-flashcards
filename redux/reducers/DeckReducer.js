@@ -5,7 +5,7 @@ import {
 } from '../actions/DeckAction'
 
 const initialPostState = {
-    deckList:[],        
+    deckList:[],            
  }
 
  export const deckReducer = (state = initialPostState, action) => {

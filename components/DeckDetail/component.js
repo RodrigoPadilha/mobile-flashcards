@@ -8,7 +8,6 @@ class DeckDetail extends React.Component {
   startQuiz = () => {   
     this.props.navigation.navigate(
       'Quiz',
-       console.log("Adicionar no store e/ou no defaultStore")
     )
   }
 

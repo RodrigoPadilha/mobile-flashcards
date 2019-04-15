@@ -14,6 +14,11 @@ class Quiz extends React.Component {
     
     componentDidMount(){
         this.props.listOfCards();
+        /*
+        this.props.listOfCards().then( () => { 
+            this.setState({ loading: false }) 
+        })
+        */
     }
 
     result = (value) => {
@@ -24,32 +29,33 @@ class Quiz extends React.Component {
             })); 
         }
     }
-    
-
-    render(){
-        const { cardList } = this.props
-        console.log(cardList[0])
-        let aux = cardList[0]
-        console.log(aux.key)
-        return(
-            <View style={Styles.container}>
-                <Text>???</Text>
+  
+    render(){        
+        const { cardList, loading } = this.props
+        console.log(cardList)
+        if( loading === true) {         
+            return <Text>Loading</Text>
+        }
+                
+        return(               
+            //console.log(cardList[0].question)
+            <View style={Styles.container}>                
                 <Text>{this.state.numberQuest}</Text>
+                <Text>{cardList[this.state.numberQuest-1].question}</Text>
                 <BtnDefault label='CORRETO' onPress={this.result('HIT')}/>
                 <BtnDefault label='ERRADO'  onPress={this.result('ERRADO')}/>
             </View>
-        );
-    }
+        );        
+    }   
 }
 
 const mapStateToProps = (state,props) => ({
     cardList: state.storeCards.cardList,
+    loading: state.storeCards.loading,
 });
 
 const mapDispatchToProps = (dispatch) => ({     
     listOfCards: () => dispatch(loadCardsFromStorage()),   
-    //deleteDeck: (deckKey) => dispatch(deleteDeckFromStorage(deckKey))       
-  })
+})
 
 export default connect(mapStateToProps,mapDispatchToProps)(Quiz);
-//export default Quiz
