@@ -27,10 +27,6 @@ class Quiz extends React.Component {
     render(){        
         const { cardList, loading } = this.props
         const { numberQuest } = this.state
-        //console.log(cardList)
-        console.log('numberQuest',numberQuest)
-        console.log('length',cardList.length)            
-        console.log('numberQuest < length' , numberQuest < cardList.length)
 
         if( loading === true) {         
             return <Text>Loading</Text>

@@ -15,12 +15,6 @@ class NewDeck extends React.Component {
 
   newDeck = () => {       
     this.props.addDeck({key:v4(), deckName:this.state.descNewDeck})
-    /*
-      this.props.navigation.navigate(
-        'Quiz',
-        console.log("Adicionar no store e/ou no defaultStore")
-      )
-    */
   }
 
   onChange = (descNewDeck) => {
@@ -44,9 +38,7 @@ const mapDispatchToProps = (dispatch) => ({
 })
 
 export default connect(null,mapDispatchToProps)(NewDeck);
-//export default NewDeck
 
-//addDeck
 
 /*
         <TouchableHighlight

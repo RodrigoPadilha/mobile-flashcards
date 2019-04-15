@@ -1,4 +1,5 @@
 import { 
+    LOAD_CARDS_LOADING,
     LOAD_CARDS,
     REMOVE_CARD, 
     ADD_CARD 
@@ -10,23 +11,24 @@ const initialPostState = {
  }
 
 export const cardReducer = (state = initialPostState, action) => {
-    switch(action.type){        
+    switch(action.type){       
+
+        case LOAD_CARDS_LOADING:
+            return initialPostState;
+
         case LOAD_CARDS:
-            if(action.cards){   // Se cards foi criado muda o estado de loading
-                return {
-                    cardList: action.cards,
-                    loading: false,    
-                }
+            return { 
+                cardList: action.cards, 
+                loading: false 
             }
+
+        case ADD_CARD:
             return {
                 ...state,
-                cardList: action.cards
+                cardList: state.cardList.concat(action.card)
             }
 
         case REMOVE_CARD:
-            return {}
-
-        case ADD_CARD:
             return {}
 
         default:

@@ -1,11 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux'
+import { v4 } from 'uuid'
 
 import { Text, View } from 'react-native';
 import { Styles } from './style';
 import { BtnDefault, TxtInput } from '../UI/component';
-
-//import { addCard } from '../../redux/actions/???'
+import { addCard } from '../../redux/actions/CardAction';
 
 class NewCard extends React.Component {  
 
@@ -17,9 +17,14 @@ class NewCard extends React.Component {
     this.setState({descNewCard})
   }
 
-  newCard = () => {
-    console.log("Adicionar o card: ", this.state.descNewCard)
-    //this.props.addCard(this.state.descNewCard)
+  newCard = (deckKey) => {
+    return () => {      
+      this.props.addCard({
+          key: v4(),
+          parent: deckKey,
+          question: this.state.descNewCard
+      })
+    }
   }
 
   render() {        
@@ -29,17 +34,17 @@ class NewCard extends React.Component {
         <View style={Styles.container}>        
           <Text>New Card neste cara aqui: {deckKey} </Text>
           <TxtInput hint='Nome novo Card' onChangeText={this.onChange}/>              
-          <BtnDefault label='CONFIRMAR' onPress={this.newCard}/>
+          <BtnDefault label='CONFIRMAR' onPress={this.newCard(deckKey)}/>
         </View>
     );
   }
 }
 
-export default NewCard
+//export default NewCard
 
-/*
+
 const mapDispatchToProps = (dispatch) => ({   
-  addCard: (newDeckName) => dispatch(addCard(newDeckName))  
+  addCard: (card) => dispatch(addCard(card))  
 })
-*/
-//export default connect(null,mapDispatchToProps)(NewCard);
+
+export default connect(null,mapDispatchToProps)(NewCard);
