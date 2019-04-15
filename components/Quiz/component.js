@@ -9,39 +9,36 @@ import { BtnDefault } from '../UI/component';
 class Quiz extends React.Component {
 
     state ={
-        numberQuest: 1
+        numberQuest: 0
     }
     
     componentDidMount(){
         this.props.listOfCards();
-        /*
-        this.props.listOfCards().then( () => { 
-            this.setState({ loading: false }) 
-        })
-        */
     }
 
     result = (value) => {
         return () => {            
-            console.log(value)
             this.setState(prevState => ({
-                numberQuest: prevState.numberQuest + 1
+                numberQuest: prevState.numberQuest < this.props.cardList.length ? prevState.numberQuest + 1 : prevState.numberQuest
             })); 
         }
     }
   
     render(){        
         const { cardList, loading } = this.props
-        console.log(cardList)
+        const { numberQuest } = this.state
+        //console.log(cardList)
+        console.log('numberQuest',numberQuest)
+        console.log('length',cardList.length)            
+        console.log('numberQuest < length' , numberQuest < cardList.length)
+
         if( loading === true) {         
             return <Text>Loading</Text>
-        }
-                
+        }                
         return(               
-            //console.log(cardList[0].question)
             <View style={Styles.container}>                
-                <Text>{this.state.numberQuest}</Text>
-                <Text>{cardList[this.state.numberQuest-1].question}</Text>
+                <Text>{numberQuest+1}</Text>
+                <Text>{numberQuest < cardList.length ? cardList[numberQuest].question : 'Fim'}</Text>
                 <BtnDefault label='CORRETO' onPress={this.result('HIT')}/>
                 <BtnDefault label='ERRADO'  onPress={this.result('ERRADO')}/>
             </View>

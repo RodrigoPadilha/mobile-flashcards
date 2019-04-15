@@ -12,17 +12,15 @@ const initialPostState = {
 export const cardReducer = (state = initialPostState, action) => {
     switch(action.type){        
         case LOAD_CARDS:
-            if(action.cards){
+            if(action.cards){   // Se cards foi criado muda o estado de loading
                 return {
                     cardList: action.cards,
                     loading: false,    
-                    //cardList: action.cards
                 }
-            } else {
-                return {
-                    ...state,
-                    cardList: action.cards
-                }
+            }
+            return {
+                ...state,
+                cardList: action.cards
             }
 
         case REMOVE_CARD:
