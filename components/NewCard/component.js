@@ -5,7 +5,7 @@ import { v4 } from 'uuid'
 import { Text, View } from 'react-native';
 import { Styles } from './style';
 import { BtnDefault, TxtInput } from '../UI/component';
-import { addCard } from '../../redux/actions/CardAction';
+import { addCardToStorage } from '../../redux/actions/CardAction';
 
 class NewCard extends React.Component {  
 
@@ -18,6 +18,7 @@ class NewCard extends React.Component {
   }
 
   newCard = (deckKey) => {
+    console.log('Passando objeto para o Action')
     return () => {      
       this.props.addCard({
           key: v4(),
@@ -44,7 +45,7 @@ class NewCard extends React.Component {
 
 
 const mapDispatchToProps = (dispatch) => ({   
-  addCard: (card) => dispatch(addCard(card))  
+  addCard: (card) => dispatch(addCardToStorage(card))  
 })
 
 export default connect(null,mapDispatchToProps)(NewCard);
