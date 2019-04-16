@@ -12,7 +12,7 @@ export const Styles = StyleSheet.create({
 
   container: {
     flex: 1,
-    backgroundColor: "#ff0000",
+    backgroundColor: "#fff",
     paddingVertical: 50,
     position: "relative"
     },

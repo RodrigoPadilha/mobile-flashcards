@@ -13,7 +13,8 @@ class Quiz extends React.Component {
     }
     
     componentDidMount(){
-        this.props.listOfCards();
+        const deckKey = this.props.navigation.getParam('deckKey')
+        this.props.listOfCards(deckKey);
     }
 
     result = (value) => {
@@ -26,7 +27,7 @@ class Quiz extends React.Component {
   
     render(){        
         const { cardList, loading } = this.props
-        const { numberQuest } = this.state
+        const { numberQuest } = this.state        
 
         if( loading === true) {         
             return <Text>Loading</Text>
@@ -48,7 +49,7 @@ const mapStateToProps = (state,props) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({     
-    listOfCards: () => dispatch(loadCardsFromStorage()),   
+    listOfCards: (deckKey) => dispatch(loadCardsFromStorage(deckKey)),   
 })
 
 export default connect(mapStateToProps,mapDispatchToProps)(Quiz);

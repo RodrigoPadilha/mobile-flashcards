@@ -18,7 +18,6 @@ class NewCard extends React.Component {
   }
 
   newCard = (deckKey) => {
-    console.log('Passando objeto para o Action')
     return () => {      
       this.props.addCard({
           key: v4(),
@@ -40,9 +39,6 @@ class NewCard extends React.Component {
     );
   }
 }
-
-//export default NewCard
-
 
 const mapDispatchToProps = (dispatch) => ({   
   addCard: (card) => dispatch(addCardToStorage(card))  

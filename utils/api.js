@@ -1,16 +1,36 @@
 import { AsyncStorage } from 'react-native'
 
+const DECK_STORAGE_KEY = 'App:decks'
 const CARD_STORAGE_KEY = 'App:cards'
 
-export function getCardList(){
+/***********\
+    CARD
+\***********/
+export function submitCard( card ){
+    AsyncStorage.getItem(CARD_STORAGE_KEY).then((results) => {    
+        var data = JSON.parse(results)                        
+        if(data !== null){            
+            data.push(card)                
+        } else {
+            data = []
+            data.push(card)              
+        }
+        AsyncStorage.setItem(CARD_STORAGE_KEY, JSON.stringify(
+            data
+        ))        
+    })               
+}
+
+export function getCardList(deckKey){
     return AsyncStorage.getItem(CARD_STORAGE_KEY)
         .then((results) => {            
-            const data = JSON.parse(results)
-            console.log(data)
-            data.map((item)=> console.log(item))
-            
+            var data = JSON.parse(results)            
+            if(!data)
+                return []                 
+            return data.filter(card => card.parent === deckKey)
         })    
 }
+
 
 export function submitCardList( cardList ){    
     console.log('SubmitCardList:', cardList)
@@ -18,37 +38,6 @@ export function submitCardList( cardList ){
         cardList
     }))
 }
-
-
-export function submitCard( card ){
-    AsyncStorage.getItem(CARD_STORAGE_KEY)
-        .then((results) => {                         
-            const data = JSON.parse(results)                        
-            if(data !== null){
-                console.log('Entrou')
-                //data.push(card)
-                console.log(data)
-                /*data.push(card)
-                AsyncStorage.setItem(CARD_STORAGE_KEY, Json.stringify({
-                    data
-                }))
-                */
-            } else {
-                data = []
-                AsyncStorage.setItem(CARD_STORAGE_KEY, Json.stringify(
-                    data
-                ))
-            }
-            
-        })               
-    /*return AsyncStorage.mergeItem(CARD_STORAGE_KEY, JSON.stringify({
-        card
-    }))
-    */
-}
-
-
-
 
 export function removeCard(){
 
@@ -67,5 +56,29 @@ export function removeCardList(key){
 }
 
 
-//import { CARD_STORAGE_KEY } from '../???'
-//export const CARD_STORAGE_KEY = 'App:cards'
+/***********\
+    DECK
+\***********/
+export function submitDeck( deck ){
+    AsyncStorage.getItem(DECK_STORAGE_KEY).then((results) => {    
+        var data = JSON.parse(results)                        
+        if(data !== null){            
+            data.push(deck)                
+        } else {
+            data = []
+            data.push(deck)              
+        }
+        AsyncStorage.setItem(DECK_STORAGE_KEY, JSON.stringify(
+            data
+        ))        
+    })               
+}
+
+export function getDeckList(){
+    return AsyncStorage.getItem(DECK_STORAGE_KEY).then((results) => {            
+            var data = JSON.parse(results)            
+            if(!data)
+                return []                 
+            return data
+        })    
+}

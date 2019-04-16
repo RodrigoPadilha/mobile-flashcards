@@ -5,7 +5,7 @@ import { v4 } from 'uuid'
 import { Text, View } from 'react-native';
 import { Styles } from './style';
 import { BtnDefault, TxtInput } from '../UI/component';
-import { addDeck } from '../../redux/actions/DeckAction'
+import { addDeckToStorage } from '../../redux/actions/DeckAction'
 
 class NewDeck extends React.Component {  
 
@@ -34,7 +34,7 @@ class NewDeck extends React.Component {
 
 
 const mapDispatchToProps = (dispatch) => ({   
-  addDeck: (newDeckName) => dispatch(addDeck(newDeckName))  
+  addDeck: (newDeckName) => dispatch(addDeckToStorage(newDeckName))  
 })
 
 export default connect(null,mapDispatchToProps)(NewDeck);

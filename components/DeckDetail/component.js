@@ -5,10 +5,13 @@ import { BtnDefault } from '../UI/component'
 
 class DeckDetail extends React.Component {  
 
-  startQuiz = () => {   
-    this.props.navigation.navigate(
-      'Quiz',
-    )
+  startQuiz = (deckKey) => {
+    return () => {   
+      this.props.navigation.navigate(
+        'Quiz',
+        {deckKey:deckKey}
+      )
+    }
   }
 
   addNewCard = (deckKey) => {
@@ -34,7 +37,7 @@ class DeckDetail extends React.Component {
         
         <BtnDefault 
           label='Inicia Quiz' 
-          onPress={this.startQuiz}/>
+          onPress={this.startQuiz(deckKey)}/>
 
       </View>
     );

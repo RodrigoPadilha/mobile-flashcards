@@ -13,23 +13,11 @@ export const ADD_CARD = 'ADD_CARD'
 export const loadCardsFromStorage = (deckKey) => {
     return (dispatch, getState) => {
         dispatch({type: LOAD_CARDS_LOADING});
-        dispatch(
-            loadCards(getCardList())
-            /*
-            loadCards([
-                {key:v4(),parent: 'blabla', question:'Quem Descobriu o Brasil'},
-                {key:v4(),parent: 'blabla',question:'O resultado de 4x4 é:'}
-            ])
-            */
-        )
-        
-    /*
-    Buscar da LocalStorage               
-    */
-   
+        getCardList(deckKey).then((results) => {   
+            dispatch(loadCards(results)); 
+        });
     }
 }
-
 function loadCards(cards){    
     return {
         type: LOAD_CARDS,
@@ -39,13 +27,11 @@ function loadCards(cards){
 
 
 export const addCardToStorage = (card) => {
-    console.log('addCardToStorage', card)
     return (dispatch, getState) => {
         submitCard( card )
         //dispatch(addCard(card))
     }
 }
-
 function addCard(card){ 
     return {
         type: ADD_CARD,
