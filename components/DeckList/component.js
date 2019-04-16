@@ -6,7 +6,6 @@ import { loadDecksFromStorage, deleteDeckFromStorage } from '../../redux/actions
 import { Styles } from './style';
 import { BtnImage } from '../UI/component';
 
-
 class DeckList extends React.Component {
 
   componentDidMount(){
@@ -26,7 +25,7 @@ class DeckList extends React.Component {
       style={Styles.list}
       onPress={() => this.props.navigation.navigate(
         'DeckDetail',
-        {deckKey:item.key}
+        {deck:item}
       )}>
       <Text style={Styles.item}>{item.deckName}</Text>      
       <BtnImage srcImage={require('../../img/ic_delete.png')} onPress={this.deleteDeck(item.key)}/>

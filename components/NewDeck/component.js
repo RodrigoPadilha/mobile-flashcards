@@ -38,17 +38,3 @@ const mapDispatchToProps = (dispatch) => ({
 })
 
 export default connect(null,mapDispatchToProps)(NewDeck);
-
-
-/*
-        <TouchableHighlight
-          style={[Styles.btn,Styles.btnQuiz]}
-          onPress={() => this.props.navigation.navigate(
-            'Quiz',
-            console.log("Adicionar no store e/ou no defaultStore")
-          )}
-          underlayColor='#e65100'>
-          <Text style={Styles.btnText}>Add Deck</Text>
-        </TouchableHighlight>
-
-*/

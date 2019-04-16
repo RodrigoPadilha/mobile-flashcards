@@ -33,26 +33,33 @@ export function getCardList(deckKey){
 
 
 export function submitCardList( cardList ){    
-    console.log('SubmitCardList:', cardList)
     return AsyncStorage.setItem(CARD_STORAGE_KEY, JSON.stringify({
         cardList
     }))
 }
 
-export function removeCard(){
+export function removeCardsOfDeck(deckKey){
+    // return AsyncStorage.getItem(CARD_STORAGE_KEY)
+    //     .then((results) => {            
+    //         const data = JSON.parse(results)            
+    //         //Como sobrescrever a lista da Storage???
 
-}
+    //         //let keys = ['k1', 'k2'];
+    //         AsyncStorage.multiRemove([CARD_STORAGE_KEY], (err) => {
+    //             // keys k1 & k2 removed, if they existed
+    //             // do most stuff after removal (if you want)
+    //         });
+    //         AsyncStorage.setItem(CARD_STORAGE_KEY, JSON.stringify(
+    //             data.filter(card => card.parent !== deckKey)
+    //         )) 
+    //     })    
 
-export function removeCardList(key){
-    return AsyncStorage.getItem(CARD_STORAGE_KEY)
-        .then((results) => {            
-            const data = JSON.parse(results)
-            console.log('RemoveCardList:', data)
-            //data[key] = undefined
-            //delete data[key]
-            //AsyncStorage.setItem(CARD_STORAGE_KEY, JSON.stringify(data))
-        })
-
+        return AsyncStorage.getItem(CARD_STORAGE_KEY).then( results => {
+            const data = JSON.parse(results);
+            const newData = data.filter(card => card.parent !== deckKey);
+            AsyncStorage.setItem(CARD_STORAGE_KEY, JSON.stringify(newData));
+            return newData;
+     });
 }
 
 
@@ -68,9 +75,7 @@ export function submitDeck( deck ){
             data = []
             data.push(deck)              
         }
-        AsyncStorage.setItem(DECK_STORAGE_KEY, JSON.stringify(
-            data
-        ))        
+        AsyncStorage.setItem(DECK_STORAGE_KEY, JSON.stringify(data))        
     })               
 }
 
@@ -80,5 +85,14 @@ export function getDeckList(){
             if(!data)
                 return []                 
             return data
+        })    
+}
+
+export function removeDeckAPI(deckKey){
+    return AsyncStorage.getItem(DECK_STORAGE_KEY).then((results) => {            
+            const data = JSON.parse(results) 
+            const newData = data.filter(deck => deck.key !== deckKey)                  
+            AsyncStorage.setItem(DECK_STORAGE_KEY, JSON.stringify(newData))   
+            return newData           
         })    
 }

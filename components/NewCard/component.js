@@ -10,11 +10,15 @@ import { addCardToStorage } from '../../redux/actions/CardAction';
 class NewCard extends React.Component {  
 
   state = { 
-    descNewCard: 'Novo Cartão' 
+    descQuestion: 'Peergunta', 
+    descAnswer: 'Resposta'
   }
 
-  onChange = (descNewCard) => {
-    this.setState({descNewCard})
+  onChangeQuestion = (descQuestion) => {
+    this.setState({descQuestion})
+  }
+  onChangeAnswer = (descAnswer) => {
+    this.setState({descAnswer})
   }
 
   newCard = (deckKey) => {
@@ -22,19 +26,21 @@ class NewCard extends React.Component {
       this.props.addCard({
           key: v4(),
           parent: deckKey,
-          question: this.state.descNewCard
+          question: this.state.descQuestion,
+          answer: this.state.descAnswer
       })
     }
   }
 
   render() {        
     const {navigation} = this.props
-    const deckKey = navigation.getParam('deckKey')
+    const deck = navigation.getParam('deck')
     return (
         <View style={Styles.container}>        
-          <Text>New Card neste cara aqui: {deckKey} </Text>
-          <TxtInput hint='Nome novo Card' onChangeText={this.onChange}/>              
-          <BtnDefault label='CONFIRMAR' onPress={this.newCard(deckKey)}/>
+          <Text>Adicione cartões para ao Deck {deck.deckName} </Text>
+          <TxtInput hint='Nome novo Card' onChangeText={this.onChangeQuestion}/>              
+          <TxtInput hint='Resposta' onChangeText={this.onChangeAnswer}/>              
+          <BtnDefault label='CONFIRMAR' onPress={this.newCard(deck.key)}/>
         </View>
     );
   }

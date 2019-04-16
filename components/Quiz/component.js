@@ -9,10 +9,13 @@ import { BtnDefault } from '../UI/component';
 class Quiz extends React.Component {
 
     state ={
-        numberQuest: 0
+        numberQuest: 0,
+        turnCard: false,
+        anwserCorrect:0,
     }
     
     componentDidMount(){
+        this.showAnswer(false)        
         const deckKey = this.props.navigation.getParam('deckKey')
         this.props.listOfCards(deckKey);
     }
@@ -20,24 +23,54 @@ class Quiz extends React.Component {
     result = (value) => {
         return () => {            
             this.setState(prevState => ({
-                numberQuest: prevState.numberQuest < this.props.cardList.length ? prevState.numberQuest + 1 : prevState.numberQuest
+                numberQuest: prevState.numberQuest < this.props.cardList.length ? prevState.numberQuest + 1 : prevState.numberQuest,
+                turnCard: false,
+                anwserCorrect: value === 'HIT' ? prevState.anwserCorrect + 1 : prevState.anwserCorrect,
             })); 
         }
     }
+
+    showAnswer = (status) => {
+        return () => {
+            this.setState({turnCard:status})
+        }
+    }
   
+    score = (qtdQuestions) => (this.state.anwserCorrect * 100) / qtdQuestions
+    
     render(){        
         const { cardList, loading } = this.props
-        const { numberQuest } = this.state        
+        const { numberQuest, turnCard } = this.state  
+        const endTest = numberQuest >= cardList.length      
 
         if( loading === true) {         
             return <Text>Loading</Text>
-        }                
+        }
+
+        if(endTest){
+            return  (
+                <View style={Styles.container}>
+                    <Text>FIM</Text>
+                    <Text>Você acertou {this.score(cardList.length).toFixed(2)}%</Text>
+                </View>
+            )
+            
+        }
+
         return(               
             <View style={Styles.container}>                
-                <Text>{numberQuest+1}</Text>
-                <Text>{numberQuest < cardList.length ? cardList[numberQuest].question : 'Fim'}</Text>
-                <BtnDefault label='CORRETO' onPress={this.result('HIT')}/>
-                <BtnDefault label='ERRADO'  onPress={this.result('ERRADO')}/>
+                <Text>Questão {numberQuest+1} de {cardList.length}</Text>
+                <Text>{numberQuest < cardList.length ? cardList[numberQuest].question : 'Fim'}</Text>                
+
+                { turnCard && 
+                    <View>
+                        <Text>Resposta: {cardList[numberQuest].answer}</Text>
+                        <BtnDefault label='CORRETO' onPress={this.result('HIT')}/>
+                        <BtnDefault label='ERRADO'  onPress={this.result('ERRADO')}/>                    
+                    </View>
+                    || 
+                    <BtnDefault label='Exibir resposta (Answer)' onPress={this.showAnswer(true)}/>
+                }                
             </View>
         );        
     }   

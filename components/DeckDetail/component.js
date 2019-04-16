@@ -14,30 +14,31 @@ class DeckDetail extends React.Component {
     }
   }
 
-  addNewCard = (deckKey) => {
+  addNewCard = (deck) => {
     return () => {
       this.props.navigation.navigate(
         'NewCard',
-        {deckKey:deckKey}
+        {deck:deck}
       )
     }
   }
 
   render() {    
     const {navigation} = this.props
-    const deckKey = navigation.getParam('deckKey')
+    const deck = navigation.getParam('deck')
+    console.log(deck)
     return (
       <View style={Styles.container}>        
         <Text>Details Screen </Text>
-        <Text>Param: {deckKey}</Text>
+        <Text>Param: {deck.deckName}</Text>
 
         <BtnDefault 
           label='Add Card' 
-          onPress={this.addNewCard(deckKey)}/>
+          onPress={this.addNewCard(deck)}/> 
         
         <BtnDefault 
           label='Inicia Quiz' 
-          onPress={this.startQuiz(deckKey)}/>
+          onPress={this.startQuiz(deck.key)}/>
 
       </View>
     );
@@ -45,37 +46,3 @@ class DeckDetail extends React.Component {
 }
 
 export default DeckDetail
-
-
-/*const DeckDetail = (props, context) =>
-  <div>Deck Name: {props.name}</div>
-
-  //<div style={{color: context.color}}>Deck Name: {props.name}</div>
-
-
-
-  {this.props.navigation.state.params.deckKey}
-*/
-
-
-
-  {/*
-  <TouchableHighlight
-    style={Styles.btn}
-    onPress={() => this.props.navigation.navigate(
-      'NewCard',
-      {deckKey:deckKey}
-    )}
-    underlayColor='#e65100'>
-    <Text style={Styles.btnText}>Add Card</Text>
-  </TouchableHighlight>
-
-  <TouchableHighlight
-    style={[Styles.btn,Styles.btnQuiz]}
-    onPress={() => this.props.navigation.navigate(
-      'Quiz',
-      {deckKey:deckKey}
-    )}
-    underlayColor='#e65100'>
-    <Text style={Styles.btnText}>Iniciar Quiz</Text>
-    </TouchableHighlight>*/}
