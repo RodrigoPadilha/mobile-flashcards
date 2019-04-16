@@ -39,21 +39,6 @@ export function submitCardList( cardList ){
 }
 
 export function removeCardsOfDeck(deckKey){
-    // return AsyncStorage.getItem(CARD_STORAGE_KEY)
-    //     .then((results) => {            
-    //         const data = JSON.parse(results)            
-    //         //Como sobrescrever a lista da Storage???
-
-    //         //let keys = ['k1', 'k2'];
-    //         AsyncStorage.multiRemove([CARD_STORAGE_KEY], (err) => {
-    //             // keys k1 & k2 removed, if they existed
-    //             // do most stuff after removal (if you want)
-    //         });
-    //         AsyncStorage.setItem(CARD_STORAGE_KEY, JSON.stringify(
-    //             data.filter(card => card.parent !== deckKey)
-    //         )) 
-    //     })    
-
         return AsyncStorage.getItem(CARD_STORAGE_KEY).then( results => {
             const data = JSON.parse(results);
             const newData = data.filter(card => card.parent !== deckKey);
