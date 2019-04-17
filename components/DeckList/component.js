@@ -6,10 +6,11 @@ import { loadDecksFromStorage, deleteDeckFromStorage } from '../../redux/actions
 import { Styles } from './style';
 import { BtnImage } from '../UI/component';
 
+
 class DeckList extends React.Component {
 
   componentDidMount(){
-    this.props.listOfDecks();
+    this.props.listOfDecks();    
   }
 
   deleteDeck = (deckKey) => {

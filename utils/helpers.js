@@ -51,3 +51,9 @@ export function setLocalNotification(){
                 })
     })
 }
+
+export function testNotification(){
+    Notifications.presentLocalNotificationAsync(
+        createNotification()
+    );
+}
