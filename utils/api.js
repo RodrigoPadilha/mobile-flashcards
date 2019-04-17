@@ -17,13 +17,50 @@ export function submitCard( card ){
         }
         AsyncStorage.setItem(CARD_STORAGE_KEY, JSON.stringify(
             data
-        ))        
+        ))  
+        updateQtdCards(card.parent)      
     })               
 }
 
+function updateQtdCards(deckKey){
+    // pega lista de Decks
+    AsyncStorage.getItem(DECK_STORAGE_KEY)
+    .then((results) => {            
+        var data = JSON.parse(results)
+        console.log('Lista Atual', data)
+        //Pega deck que precisa ser atualizado
+        var itemToUpdate = data.find(deck => deck.key === deckKey)
+        console.log('itemToUpdate',itemToUpdate.qtdCards)
+
+        // Atualiza qtd para +1
+        itemToUpdate.qtdCards = itemToUpdate.qtdCards + 1
+            
+        // Pega lista sem o item que está sendo atualizado
+        data = data.filter(deck => deck.key !== deckKey)   
+        console.log('Lista Sem Item',data)
+        
+        // Adiciona novo
+        data.push(itemToUpdate)
+        console.log('Lista Com Item Add',data)
+
+        // Deleta Lista            
+        //AsyncStorage.removeItem(DECK_STORAGE_KEY)        
+        
+        // Salva nova lista        
+        AsyncStorage.setItem(DECK_STORAGE_KEY, JSON.stringify(data))
+        
+        return data
+        /*
+        AsyncStorage.setItem(DECK_STORAGE_KEY, JSON.stringify(newData))   
+            return newData           
+        
+        */
+    })  
+    
+}
+
 export function getCardList(deckKey){
-    return AsyncStorage.getItem(CARD_STORAGE_KEY)
-        .then((results) => {            
+    return AsyncStorage.getItem(CARD_STORAGE_KEY).then((results) => {            
             var data = JSON.parse(results)            
             if(!data)
                 return []                 
@@ -68,7 +105,7 @@ export function getDeckList(){
     return AsyncStorage.getItem(DECK_STORAGE_KEY).then((results) => {            
             var data = JSON.parse(results)            
             if(!data)
-                return []                 
+                return []      
             return data
         })    
 }

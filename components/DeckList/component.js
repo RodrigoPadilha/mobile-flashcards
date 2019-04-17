@@ -27,7 +27,8 @@ class DeckList extends React.Component {
         'DeckDetail',
         {deck:item}
       )}>
-      <Text style={Styles.item}>{item.deckName}</Text>      
+      <Text style={Styles.item}>{item.deckName}</Text>  
+      <Text>{item.qtdCards} cartas</Text>    
       <BtnImage srcImage={require('../../img/ic_delete.png')} onPress={this.deleteDeck(item.key)}/>
     </TouchableOpacity>  
     

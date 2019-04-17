@@ -14,7 +14,7 @@ class NewDeck extends React.Component {
   }
 
   newDeck = () => {       
-    this.props.addDeck({key:v4(), deckName:this.state.descNewDeck})
+    this.props.addDeck({key:v4(), deckName:this.state.descNewDeck, qtdCards:0})
   }
 
   onChange = (descNewDeck) => {

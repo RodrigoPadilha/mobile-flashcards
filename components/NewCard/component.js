@@ -6,6 +6,7 @@ import { Text, View } from 'react-native';
 import { Styles } from './style';
 import { BtnDefault, TxtInput } from '../UI/component';
 import { addCardToStorage } from '../../redux/actions/CardAction';
+//import { loadDecksFromStorage } from '../../redux/actions/DeckAction'
 
 class NewCard extends React.Component {  
 
@@ -27,8 +28,11 @@ class NewCard extends React.Component {
           key: v4(),
           parent: deckKey,
           question: this.state.descQuestion,
-          answer: this.state.descAnswer
+          answer: this.state.descAnswer,
       })
+      
+      //this.props.listOfDecks()
+      
     }
   }
 
@@ -47,7 +51,8 @@ class NewCard extends React.Component {
 }
 
 const mapDispatchToProps = (dispatch) => ({   
-  addCard: (card) => dispatch(addCardToStorage(card))  
+  addCard: (card) => dispatch(addCardToStorage(card)),
+  //listOfDecks: () => dispatch(loadDecksFromStorage())  
 })
 
 export default connect(null,mapDispatchToProps)(NewCard);
