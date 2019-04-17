@@ -9,7 +9,7 @@ import thunk from 'redux-thunk';
 import { setLocalNotification, testNotification } from './utils/helpers'
 
 import { Constants } from 'expo'
-import { orange } from './utils/colors'
+import { purple } from './utils/colors'
 
 const store = createStore(
   rootReducer,
@@ -36,7 +36,7 @@ export default class App extends React.Component {
   render() {
     return (
       <Provider store={store}>
-        <AppStatusBar backgroundColor={orange} barStyle='light-content'/>
+        <AppStatusBar backgroundColor={purple} barStyle='light-content'/>        
         <TabNavigator />
       </Provider>
     );

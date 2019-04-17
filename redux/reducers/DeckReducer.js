@@ -1,8 +1,12 @@
 import { 
     LOAD_ALL_DECKS,
     REMOVE_DECK, 
-    ADD_DECK 
+    ADD_DECK,    
 } from '../actions/DeckAction'
+
+import {
+    ADD_CARD
+} from '../actions/CardAction'
 
 const initialPostState = {
     deckList:[],            
@@ -28,6 +32,16 @@ const initialPostState = {
                 deckList: state.deckList.concat(action.deck)
             }
 
+        case ADD_CARD:            
+            return { 
+                ...state,
+                deckList: state.deckList.map(deck => {
+                    if(deck.key === action.card.parent){
+                        deck.qtdCards = deck.qtdCards + 1
+                    }
+                    return deck
+                })                
+            }
         default:
             return state
     }

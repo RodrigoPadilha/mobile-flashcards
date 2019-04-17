@@ -1,7 +1,7 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Text, View } from 'react-native';
 import { Styles } from './style';
-import { BtnDefault } from '../UI/component'
+import { BtnDefault } from '../UI/component';
 import { 
   clearLocalNotifications,
   setLocalNotification 
@@ -35,14 +35,16 @@ class DeckDetail extends React.Component {
     const deck = navigation.getParam('deck')
     return (
       <View style={Styles.container}>        
-        <Text>Details Screen </Text>
-        <Text>Param: {deck.deckName}</Text>
+        <Text>{deck.deckName}</Text>
+        <Text>Esse baralho possui {deck.qtdCards} cartas</Text>
 
         <BtnDefault 
+          style={Styles.btnText}
           label='Add Card' 
           onPress={this.addNewCard(deck)}/> 
         
         <BtnDefault 
+          style={Styles.btnQuiz}
           label='Inicia Quiz' 
           onPress={this.startQuiz(deck.key)}/>
 

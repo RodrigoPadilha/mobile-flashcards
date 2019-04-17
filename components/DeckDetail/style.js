@@ -1,9 +1,10 @@
 import { StyleSheet } from 'react-native';
+import { background_view } from '../../utils/colors'
 
 export const Styles = StyleSheet.create({
 
   container: {    
-    backgroundColor: '#ee7700',
+    backgroundColor: background_view,
     flex: 1, 
     alignItems: 'center', 
     justifyContent: 'center',
@@ -21,7 +22,7 @@ export const Styles = StyleSheet.create({
     color:'#fff'
   },
   btnQuiz:{
-    marginTop:10
+    marginTop:20
   }
 
 });

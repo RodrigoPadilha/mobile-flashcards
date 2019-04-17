@@ -9,18 +9,18 @@ fazer os quizes nestes baralhos.
 - A frente do cartão pode exibir uma pergunta ou questão.
 - A traseira do cartão deve exibir a resposta.
 - Os usuários devem estar aptos a se testarem em um baralho específico e receberem uma pontuação quando eles concluírem o baralho.
-    - Os usuários devem receber uma notificação para lembrá-los de estudar, caso eles não tenham feito isso no dia.
+- Os usuários devem receber uma notificação para lembrá-los de estudar, caso eles não tenham feito isso no dia.
 
 # Views
 Sua aplicação deve possuir, no mínimo, cinco views.
 
 ## Lista de Baralhos(View padrão)
 - exibe o título de cada baralho
-    - exibe o número de cartões em cada baralho
+- exibe o número de cartões em cada baralho
 
 ## Baralho individual
 - exibe o título do baralho
-    - exibe o número de cartões em um baralho
+- exibe o número de cartões em um baralho
 - exibe uma opção para começar um quiz no baralho
 - uma opção de adicionar uma nova pergunta ao baralho
 
@@ -46,3 +46,8 @@ Sua aplicação deve possuir, no mínimo, cinco views.
 - Remover Cartões do respectivo Deck
 - Remover Cartão
 - Gerador de ID
+
+yarns install ou npm install
+yarn start
+aceitar e autorizar as permissões no app Expo
+

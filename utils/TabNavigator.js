@@ -1,4 +1,4 @@
-import { Ionicons } from '@expo/vector-icons';
+ import { Ionicons } from '@expo/vector-icons';
 import { 
     createStackNavigator, 
     createBottomTabNavigator, 
@@ -12,8 +12,6 @@ import NewCard from '../components/NewCard/component';
 import Quiz from '../components/Quiz/component';
 
 import { orange, white, purple, red } from './colors'
-
-
 
 const AppNavigator = createStackNavigator(
   {
@@ -58,10 +56,10 @@ const TabNavigator = createMaterialTopTabNavigator(
       indicatorStyle: {
         backgroundColor: red,
       },
-      activeTintColor: Platform.OS === 'ios' ? orange : white,
+      activeTintColor: Platform.OS === 'ios' ? purple : white,
       style: {
         height: 56,
-        backgroundColor: Platform.OS === 'ios' ? white : orange,
+        backgroundColor: Platform.OS === 'ios' ? white : purple,
         shadowColor: 'rgba(0, 0, 0, 0.24)',
         shadowOffset: {
           width: 0,

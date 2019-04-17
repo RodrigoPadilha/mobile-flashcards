@@ -27,10 +27,9 @@ function loadCards(cards){
 
 
 export const addCardToStorage = (card) => {
-    console.log('Add esse card:',card)
     return (dispatch, getState) => {
         submitCard( card )
-        //dispatch(addCard(card))
+        dispatch(addCard(card))
     }
 }
 function addCard(card){ 

@@ -27,21 +27,21 @@ function updateQtdCards(deckKey){
     AsyncStorage.getItem(DECK_STORAGE_KEY)
     .then((results) => {            
         var data = JSON.parse(results)
-        console.log('Lista Atual', data)
+//        console.log('Lista Atual', data)
         //Pega deck que precisa ser atualizado
         var itemToUpdate = data.find(deck => deck.key === deckKey)
-        console.log('itemToUpdate',itemToUpdate.qtdCards)
+//        console.log('itemToUpdate',itemToUpdate.qtdCards)
 
         // Atualiza qtd para +1
         itemToUpdate.qtdCards = itemToUpdate.qtdCards + 1
             
         // Pega lista sem o item que está sendo atualizado
         data = data.filter(deck => deck.key !== deckKey)   
-        console.log('Lista Sem Item',data)
+//        console.log('Lista Sem Item',data)
         
         // Adiciona novo
         data.push(itemToUpdate)
-        console.log('Lista Com Item Add',data)
+//        console.log('Lista Com Item Add',data)
 
         // Deleta Lista            
         //AsyncStorage.removeItem(DECK_STORAGE_KEY)        

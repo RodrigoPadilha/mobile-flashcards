@@ -33,12 +33,16 @@ class DeckList extends React.Component {
       <BtnImage srcImage={require('../../img/ic_delete.png')} onPress={this.deleteDeck(item.key)}/>
     </TouchableOpacity>  
     
+  renderHeader = () => {
+    return <Text>Lista de Decks</Text>;
+  };
   render() {
     const { deckList } = this.props
     return (      
-      <View style={Styles.container}>        
+      <View style={Styles.container}>    
         <FlatList
           data={deckList}
+          //ListHeaderComponent={this.renderHeader}
           ItemSeparatorComponent={() => this.FlatListItemSeparator()}
           renderItem={({item}) => this.renderItem(item)}
           keyExtractor={(item) => item.key}

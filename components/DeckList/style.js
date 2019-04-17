@@ -1,21 +1,40 @@
 import { StyleSheet } from 'react-native';
+import { background_view, orange } from '../../utils/colors'
 
 export const Styles = StyleSheet.create({
-
-  item: {
-    padding: 10,
-    fontSize: 18,
-    height: 44,
-    backgroundColor: '#ff00ff',
-  },
 
 
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: background_view,
     paddingVertical: 50,
     position: "relative"
-    },
+  },
+  list: {
+    paddingVertical: 5,
+    margin: 3,
+    flexDirection: "row",
+    backgroundColor: orange,
+    justifyContent: "flex-start",
+    alignItems: "center",
+    zIndex: -1
+  },
+  item: {
+    padding: 10,
+    fontSize: 18,
+    height: 44,
+    //backgroundColor: '#ff00ff',
+  },
+  line: {
+    height: 2,
+    width: "100%",
+    backgroundColor:"rgba(255,255,255,0.5)"
+  },
+
+
+
+
+/*
   title: {
     fontSize: 20,
     color: "#fff",
@@ -28,26 +47,14 @@ export const Styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: "#fff"
   },
-  list: {
-    paddingVertical: 5,
-    margin: 3,
-    flexDirection: "row",
-    backgroundColor: "#00ffee",
-    justifyContent: "flex-start",
-    alignItems: "center",
-    zIndex: -1
-  },
+
   lightText: {
     color: "#f7f7f7",
     width: 200,
     paddingLeft: 15,
     fontSize: 12
     },
-  line: {
-    height: 2,
-    width: "100%",
-    backgroundColor:"rgba(255,255,255,0.5)"
-  },
+
   icon: {
     position: "absolute",  
     bottom: 20,
@@ -69,5 +76,5 @@ export const Styles = StyleSheet.create({
   },
   number: {fontSize: 14,color: "#000"},
   selected: {backgroundColor: "#FA7B5F"},
-
+*/
 });
