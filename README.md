@@ -1,4 +1,5 @@
-#FlashCards
+# FlashCards
+
 ## Visão Geral do projeto:
 Nesta aplicação o usuário poderá definir categorias para estudo que são representados em um Deck. Em cada deck será possível definir cartões que devem conter perguntas e respostas.
 Ao executar a aplicação é exibido a aba que possui a lista de Decks criados pelo usuário. Em cada item da lista o nome do deck e a quantidade de cartões (perguntas) incluídos a neste deck. Também é possível excluir um deck e todas as suas cartas, essa opção é definitiva e não permite rollback.
