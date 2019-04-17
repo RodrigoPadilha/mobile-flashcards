@@ -13,7 +13,7 @@ O estudo é dado pela exibição da pergunta, então após pensar na resposta, o
 
 Tanto Decks quanto cartões são persistidos localmente, permitindo a visualização futura dos itens criados.
 
-## Requisistos específicos
+## Requisitos específicos
 
 - Permita que usuários criem um baralho que poderá conter um número ilimitado de cartões.
 - Permita que usuários adicionem um cartão a um específico baralho.
@@ -52,14 +52,15 @@ Sua aplicação deve possuir, no mínimo, cinco views.
 - opção de inserir uma resposta
 - btn de enviar a nova pergunta e assim criar um cartão
 
-###Extras
+### Extras
 - Remover Deck e seus respectivos cards
-- Remover Cartão
 - Gerador de ID
+- Utilização do Redux
 
 ### Rodando app:
 Certifique-se de ter instalado em sua máquina o Node.js. Você pode verificar a versão do node com o comando `node -v`, o mesmo vale para o npm (`npm -v`).
 També é preciso utilizar as ferramentas da Expo para execução do app. Feito isso:
+- Se estiver usando um dispositivo Android físico, será preciso ativar a depuração de USB no dispositivo
 - Clone o projeto para sua máquina local: `git clone https://github.com/RodrigoPadilha/Readable`
 - Entre no diretório do projeto: `cd mobile-flashcards`
 - Instale todas as denpendências com o `npm install` ou `yarn install`
