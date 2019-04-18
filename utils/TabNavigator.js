@@ -16,7 +16,10 @@ import { orange, white, purple, red } from './colors'
 const AppNavigator = createStackNavigator(
   {
     DeckList: {
-      screen: DeckList,            
+      screen: DeckList,   
+      optionsX: {
+        hideHeader: true
+      }         
     },     
     
     DeckDetail: {
@@ -28,7 +31,7 @@ const AppNavigator = createStackNavigator(
     Quiz:{
       screen:Quiz,
     },
-    initialRouteName: "DeckList"    
+    initialRouteName: "DeckList"
   }
 
 )

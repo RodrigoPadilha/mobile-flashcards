@@ -24,6 +24,12 @@ function loadDeckList(allDecks){
     }
 }
 
+export const loadDeck = (deckKey) => {
+    return {
+
+    }
+}
+
 export const addDeckToStorage = (deck) => {
     return (dispatch, getState) => {        
         submitDeck( deck )

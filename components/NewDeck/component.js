@@ -13,8 +13,17 @@ class NewDeck extends React.Component {
     descNewDeck: 'Novo Deck' 
   }
 
-  newDeck = () => {       
-    this.props.addDeck({key:v4(), deckName:this.state.descNewDeck, qtdCards:0})
+  newDeck = () => {      
+    const newDeck = {
+      key:v4(), 
+      deckName:this.state.descNewDeck, 
+      qtdCards:0
+    }
+    this.props.addDeck(newDeck)    
+    this.props.navigation.navigate(
+      'DeckDetail',
+      {deckKey:newDeck.key}
+    )    
   }
 
   onChange = (descNewDeck) => {

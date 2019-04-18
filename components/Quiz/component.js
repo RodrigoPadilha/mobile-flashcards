@@ -37,6 +37,24 @@ class Quiz extends React.Component {
     }
   
     score = (qtdQuestions) => (this.state.anwserCorrect * 100) / qtdQuestions
+
+    restartQuiz = () => {
+        const deckKey = this.props.navigation.getParam('deckKey')
+        
+        this.setState({
+            numberQuest: 0,
+            turnCard: false,
+            anwserCorrect:0,
+        })
+    }
+
+    back = () => {
+        const deckKey = this.props.navigation.getParam('deckKey')
+        this.props.navigation.navigate(
+            'DeckDetail',
+            {deckKey:deckKey}
+        )
+    }
     
     render(){        
         const { cardList, loading } = this.props
@@ -52,9 +70,12 @@ class Quiz extends React.Component {
                 <View style={Styles.container}>
                     <Text>FIM</Text>
                     <Text>Você acertou {this.score(cardList.length).toFixed(2)}%</Text>
+                    <View style={Styles.btnComands}>
+                            <View style={Styles.btnRestart}><BtnDefault label='Reiniciar' onPress={this.restartQuiz}/></View>
+                            <View style={Styles.btnBack}><BtnDefault label='Voltar'  onPress={this.back}/></View>          
+                        </View>
                 </View>
-            )
-            
+            )            
         }
 
         return(               
@@ -71,7 +92,9 @@ class Quiz extends React.Component {
                         </View>
                     </View>
                     || 
-                    <BtnDefault label='Exibir resposta (Answer)' onPress={this.showAnswer(true)}/>
+                    <View style={Styles.btnComands}>
+                        <BtnDefault label='Exibir resposta (Answer)' onPress={this.showAnswer(true)}/>
+                    </View>
                 }                
             </View>
         );        

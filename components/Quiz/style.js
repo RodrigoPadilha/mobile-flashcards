@@ -9,6 +9,7 @@ export const Styles = StyleSheet.create({
     justifyContent: 'center',
   },
   txtAnswer:{
+    marginLeft:20,
     justifyContent: 'center',
   },
   btnComands:{
@@ -21,6 +22,12 @@ export const Styles = StyleSheet.create({
     marginRight:10,    
   },
   btnWrong:{    
+    marginLeft:10,
+  },
+  btnRestart:{    
+    marginRight:10,    
+  },
+  btnBack:{    
     marginLeft:10,
   }
 
