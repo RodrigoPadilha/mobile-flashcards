@@ -11,6 +11,10 @@ import {
 
 class DeckDetail extends React.Component {  
   
+  static navigationOptions = {
+    title: 'Detalhes do Deck',
+  };
+
   startQuiz = (deckKey) => {
     return () => {   
       clearLocalNotifications()

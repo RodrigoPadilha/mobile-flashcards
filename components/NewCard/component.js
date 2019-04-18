@@ -9,8 +9,12 @@ import { addCardToStorage } from '../../redux/actions/CardAction';
 
 class NewCard extends React.Component {  
 
+  static navigationOptions = {
+    title: 'Novo Cartão',
+  };
+
   state = { 
-    descQuestion: 'Peergunta', 
+    descQuestion: 'Pergunta', 
     descAnswer: 'Resposta'
   }
 

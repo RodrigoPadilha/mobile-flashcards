@@ -8,6 +8,10 @@ import { BtnDefault } from '../UI/component';
 
 class Quiz extends React.Component {
 
+    static navigationOptions = {
+        title: 'Quiz',
+    };
+
     state ={
         numberQuest: 0,
         turnCard: false,

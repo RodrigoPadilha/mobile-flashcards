@@ -9,6 +9,10 @@ import { BtnImage } from '../UI/component';
 
 class DeckList extends React.Component {
 
+  static navigationOptions = {
+    title: 'DeckList',
+  };
+
   componentDidMount(){
     this.props.listOfDecks();    
   }
