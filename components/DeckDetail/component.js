@@ -34,20 +34,24 @@ class DeckDetail extends React.Component {
     const {navigation} = this.props
     const deck = navigation.getParam('deck')
     return (
-      <View style={Styles.container}>        
+      <View style={Styles.container}>              
         <Text>{deck.deckName}</Text>
         <Text>Esse baralho possui {deck.qtdCards} cartas</Text>
+        <View style={Styles.btnComands}>        
+          
+          <View style={Styles.btnAddCard}>
+            <BtnDefault                
+              label='Add Card' 
+              onPress={this.addNewCard(deck)}/> 
+          </View>
 
-        <BtnDefault 
-          style={Styles.btnText}
-          label='Add Card' 
-          onPress={this.addNewCard(deck)}/> 
-        
-        <BtnDefault 
-          style={Styles.btnQuiz}
-          label='Inicia Quiz' 
-          onPress={this.startQuiz(deck.key)}/>
+          <View style={Styles.btnQuiz}>
+            <BtnDefault                       
+              label='Inicia Quiz' 
+              onPress={this.startQuiz(deck.key)}/>
+          </View>
 
+        </View>
       </View>
     );
   }  

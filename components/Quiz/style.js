@@ -8,5 +8,20 @@ export const Styles = StyleSheet.create({
     alignItems: 'center', 
     justifyContent: 'center',
   },
+  txtAnswer:{
+    justifyContent: 'center',
+  },
+  btnComands:{
+    flexDirection: "row",
+    marginTop:30,    
+    justifyContent: 'center',
+    alignItems: 'stretch',
+  },
+  btnCorrect:{    
+    marginRight:10,    
+  },
+  btnWrong:{    
+    marginLeft:10,
+  }
 
 });

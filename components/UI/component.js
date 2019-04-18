@@ -40,7 +40,7 @@ export const BtnImage = (props) => {
 export const TxtInput = (props) => {
     return(
         <TextInput
-            placeHolder="Email"
+            placeholder={props.hint}
             selectionColor={purple}
             style={Styles.textInput}
             onChangeText={props.onChangeText}>     

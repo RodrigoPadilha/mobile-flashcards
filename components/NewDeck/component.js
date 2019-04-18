@@ -24,9 +24,9 @@ class NewDeck extends React.Component {
   render() {    
     return (      
       <View style={Styles.container}>        
-        <Text> Qual o título do seu novo Deck?</Text>  
-        <TxtInput hint='Nome novo Deck' onChangeText={this.onChange}/>              
-        <BtnDefault label='CONFIRMAR' onPress={this.newDeck}/>
+        <View style={Styles.text}><Text>Cadastre um novo assunto para seus estudos</Text></View>
+        <View style={Styles.deckName}><TxtInput hint='Nome novo Deck' onChangeText={this.onChange}/></View>
+        <View style={Styles.btnConfirmar}><BtnDefault label='CONFIRMAR' onPress={this.newDeck}/></View>
       </View>
     );
   }  

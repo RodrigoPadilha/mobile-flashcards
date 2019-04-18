@@ -6,7 +6,6 @@ import { Text, View } from 'react-native';
 import { Styles } from './style';
 import { BtnDefault, TxtInput } from '../UI/component';
 import { addCardToStorage } from '../../redux/actions/CardAction';
-//import { loadDecksFromStorage } from '../../redux/actions/DeckAction'
 
 class NewCard extends React.Component {  
 
@@ -30,9 +29,6 @@ class NewCard extends React.Component {
           question: this.state.descQuestion,
           answer: this.state.descAnswer,
       })
-      
-      //this.props.listOfDecks()
-      
     }
   }
 
@@ -41,18 +37,17 @@ class NewCard extends React.Component {
     const deck = navigation.getParam('deck')
     return (
         <View style={Styles.container}>        
-          <Text>Adicione cartões para ao Deck {deck.deckName} </Text>
-          <TxtInput hint='Nome novo Card' onChangeText={this.onChangeQuestion}/>              
-          <TxtInput hint='Resposta' onChangeText={this.onChangeAnswer}/>              
-          <BtnDefault label='CONFIRMAR' onPress={this.newCard(deck.key)}/>
+          <Text>Adicione cartões ao Deck {deck.deckName}</Text>
+          <View style={Styles.txtQuestion}><TxtInput hint='Nome novo Card' onChangeText={this.onChangeQuestion}/></View>
+          <View style={Styles.txtAnswer}><TxtInput hint='Resposta' onChangeText={this.onChangeAnswer}/></View>
+          <View style={Styles.btnConfirmar}><BtnDefault label='CONFIRMAR' onPress={this.newCard(deck.key)}/></View>
         </View>
     );
   }
 }
 
 const mapDispatchToProps = (dispatch) => ({   
-  addCard: (card) => dispatch(addCardToStorage(card)),
-  //listOfDecks: () => dispatch(loadDecksFromStorage())  
+  addCard: (card) => dispatch(addCardToStorage(card)),  
 })
 
 export default connect(null,mapDispatchToProps)(NewCard);

@@ -42,7 +42,6 @@ export const deleteDeckFromStorage = (deckKey) => {
     return (dispatch, getState) => {
         removeCardsOfDeck(deckKey)
         removeDeckAPI(deckKey).then((results) => {
-            //console.log('Novos lista',results)
             dispatch(removeDeck(deckKey))    
         })     
     }

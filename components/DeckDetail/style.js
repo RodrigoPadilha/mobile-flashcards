@@ -9,20 +9,20 @@ export const Styles = StyleSheet.create({
     alignItems: 'center', 
     justifyContent: 'center',
   },
-  btn:{
-    backgroundColor:'#E53224',
-    padding: 10,
-    paddingLeft:50,
-    paddingRight:50,
-    justifyContent:'center',
-    alignItems:'center',
-    borderRadius:5,
+  deckName:{
+
   },
-  btnText:{
-    color:'#fff'
+  btnComands:{
+    flexDirection: "row",
+    marginTop:30,    
+    justifyContent: 'center',
+    alignItems: 'stretch',
   },
-  btnQuiz:{
-    marginTop:20
+  btnAddCard:{        
+    marginRight:10,    
+  },
+  btnQuiz:{    
+    marginLeft:10,
   }
 
 });

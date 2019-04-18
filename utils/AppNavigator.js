@@ -8,40 +8,8 @@ const AppNavigator = createStackNavigator(
     DeckDetail:DeckDetail,
   },  
   {
-    initialRouteName: "DeckList"
+    initialRouteName: "DeckList",
   },    
 )
   
 export default createAppContainer(AppNavigator);
-
-
-
-
-/*
-
-const AppNavigator = createStackNavigator({
-    DeckDetail: {
-      screen: DeckDetail,
-      navigationOptions:{
-        headerTintColor: '#ff00ff',
-        headerStyle: {
-          backgroundColor: '00ff00'
-        }
-      }
-    },
-
-  })
-
-
-
-const AppNavigator = createStackNavigator({
-    Home: {
-      screen: HomeScreen,
-    },
-    Details: {
-      screen: DetailsScreen,
-    },
-  }, {
-      initialRouteName: 'Home',
-  });
- */

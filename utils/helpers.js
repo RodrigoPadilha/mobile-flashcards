@@ -22,7 +22,6 @@ function createNotification(){
             vibrate: true,
         }
     }
-
 }
 
 export function setLocalNotification(){

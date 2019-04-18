@@ -50,7 +50,7 @@ const TabNavigator = createMaterialTopTabNavigator(
   },
   {
     navigationOptions: {
-      header: null
+      header: null,
     },
     tabBarOptions: {
       indicatorStyle: {

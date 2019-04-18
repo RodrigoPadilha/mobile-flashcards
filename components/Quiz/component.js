@@ -63,10 +63,12 @@ class Quiz extends React.Component {
                 <Text>{numberQuest < cardList.length ? cardList[numberQuest].question : 'Fim'}</Text>                
 
                 { turnCard && 
-                    <View>
+                    <View style={Styles.txtAnswer}>
                         <Text>Resposta: {cardList[numberQuest].answer}</Text>
-                        <BtnDefault label='CORRETO' onPress={this.result('HIT')}/>
-                        <BtnDefault label='ERRADO'  onPress={this.result('ERRADO')}/>                    
+                        <View style={Styles.btnComands}>
+                            <View style={Styles.btnCorrect}><BtnDefault label='CORRETO' onPress={this.result('HIT')}/></View>
+                            <View style={Styles.btnWrong}><BtnDefault label='ERRADO'  onPress={this.result('ERRADO')}/></View>          
+                        </View>
                     </View>
                     || 
                     <BtnDefault label='Exibir resposta (Answer)' onPress={this.showAnswer(true)}/>

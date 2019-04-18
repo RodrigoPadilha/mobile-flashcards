@@ -28,9 +28,11 @@ class DeckList extends React.Component {
         'DeckDetail',
         {deck:item}
       )}>
-      <Text style={Styles.item}>{item.deckName}</Text>  
-      <Text>{item.qtdCards} cartas</Text>    
-      <BtnImage srcImage={require('../../img/ic_delete.png')} onPress={this.deleteDeck(item.key)}/>
+      <View style={Styles.itemList}>
+        <Text style={Styles.deckName}>{item.deckName}</Text>  
+        <Text>{item.qtdCards} cartas</Text>    
+        <View style={Styles.icDelete}><BtnImage srcImage={require('../../img/ic_delete.png')} onPress={this.deleteDeck(item.key)}/></View>
+      </View>
     </TouchableOpacity>  
     
   renderHeader = () => {
@@ -43,7 +45,7 @@ class DeckList extends React.Component {
         <FlatList
           data={deckList}
           //ListHeaderComponent={this.renderHeader}
-          ItemSeparatorComponent={() => this.FlatListItemSeparator()}
+          //ItemSeparatorComponent={() => this.FlatListItemSeparator()}
           renderItem={({item}) => this.renderItem(item)}
           keyExtractor={(item) => item.key}
         />
