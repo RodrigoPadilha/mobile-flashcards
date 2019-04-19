@@ -5,12 +5,12 @@ import { loadCardsFromStorage } from '../../redux/actions/CardAction'
 
 import { Styles } from './style';
 import { BtnDefault } from '../UI/component';
+import { 
+    clearLocalNotifications,
+    setLocalNotification 
+  } from '../../utils/helpers'
 
 class Quiz extends React.Component {
-
-    static navigationOptions = {
-        title: 'Quiz',
-    };
 
     state ={
         numberQuest: 0,
@@ -19,6 +19,7 @@ class Quiz extends React.Component {
     }
     
     componentDidMount(){
+        clearLocalNotifications().then(setLocalNotification)
         this.showAnswer(false)        
         const deckKey = this.props.navigation.getParam('deckKey')
         this.props.listOfCards(deckKey);
@@ -41,7 +42,7 @@ class Quiz extends React.Component {
     }
   
     score = (qtdQuestions) => (this.state.anwserCorrect * 100) / qtdQuestions
-
+    
     restartQuiz = () => {
         const deckKey = this.props.navigation.getParam('deckKey')
         
@@ -59,7 +60,7 @@ class Quiz extends React.Component {
             {deckKey:deckKey}
         )
     }
-    
+
     render(){        
         const { cardList, loading } = this.props
         const { numberQuest, turnCard } = this.state  
@@ -75,9 +76,9 @@ class Quiz extends React.Component {
                     <Text>FIM</Text>
                     <Text>Você acertou {this.score(cardList.length).toFixed(2)}%</Text>
                     <View style={Styles.btnComands}>
-                            <View style={Styles.btnRestart}><BtnDefault label='Reiniciar' onPress={this.restartQuiz}/></View>
-                            <View style={Styles.btnBack}><BtnDefault label='Voltar'  onPress={this.back}/></View>          
-                        </View>
+                        <View style={Styles.btnRestart}><BtnDefault label='Reiniciar' onPress={this.restartQuiz}/></View>
+                        <View style={Styles.btnBack}><BtnDefault label='Voltar'  onPress={this.back}/></View>          
+                    </View>
                 </View>
             )            
         }

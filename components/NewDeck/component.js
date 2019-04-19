@@ -4,26 +4,36 @@ import { v4 } from 'uuid'
 
 import { Text, View } from 'react-native';
 import { Styles } from './style';
-import { BtnDefault, TxtInput } from '../UI/component';
+import { BtnDefault, TxtInput, HintDialog } from '../UI/component';
 import { addDeckToStorage } from '../../redux/actions/DeckAction'
 
 class NewDeck extends React.Component {  
 
   state = { 
-    descNewDeck: 'Novo Deck' 
+    descNewDeck: '' 
+  }
+
+  redirectToNewDeck = (key) => {
+    return () => {
+      this.props.navigation.navigate(
+        'DeckDetail',
+        {deckKey:key}
+      )
+    }
   }
 
   newDeck = () => {      
-    const newDeck = {
-      key:v4(), 
-      deckName:this.state.descNewDeck, 
-      qtdCards:0
+    if(this.state.descNewDeck.trim().length > 0){
+      const newDeck = {
+        key:v4(), 
+        deckName:this.state.descNewDeck, 
+        qtdCards:0
+      }
+      this.props.addDeck(newDeck)          
+      HintDialog({title:"Sucesso", text:"DeckCriado com Sucesso",onPressOK:this.redirectToNewDeck(newDeck.key)})
+    } else {
+      HintDialog({title:"Erro", text:"Valores em branco não são permitidos"})
     }
-    this.props.addDeck(newDeck)    
-    this.props.navigation.navigate(
-      'DeckDetail',
-      {deckKey:newDeck.key}
-    )    
   }
 
   onChange = (descNewDeck) => {

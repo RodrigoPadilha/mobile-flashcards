@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, TouchableHighlight, TextInput,TouchableOpacity, Image } from 'react-native';
+import { Text, TouchableHighlight, TextInput,TouchableOpacity, Image, Alert } from 'react-native';
 import { Styles } from './style';
 import { purple, orange } from '../../utils/colors'
 
@@ -46,4 +46,30 @@ export const TxtInput = (props) => {
             onChangeText={props.onChangeText}>     
         </TextInput>
     );
+}
+
+export const HintDialog = (props) => {
+    
+        Alert.alert(
+            props.title,
+            props.text,
+            [
+              //{text: 'Ask me later', onPress: () => console.log('Ask me later pressed')},
+             
+              /*
+              {
+                text: 'Cancel',
+                onPress: () => console.log('Cancel Pressed'),
+                style: 'cancel',
+              },
+                */
+                {text: 'OK', onPress: () => {
+                        if(props.onPressOK)
+                            props.onPressOK()
+                    }
+                },
+            ],
+            {cancelable: false},
+          )
+    
 }

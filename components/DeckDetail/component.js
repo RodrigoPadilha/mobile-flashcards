@@ -4,10 +4,6 @@ import { connect } from 'react-redux'
 
 import { Styles } from './style';
 import { BtnDefault } from '../UI/component';
-import { 
-  clearLocalNotifications,
-  setLocalNotification 
-} from '../../utils/helpers'
 
 class DeckDetail extends React.Component {  
   
@@ -17,9 +13,6 @@ class DeckDetail extends React.Component {
 
   startQuiz = (deckKey) => {
     return () => {   
-      clearLocalNotifications()
-        .then(setLocalNotification)
-
       this.props.navigation.navigate(
         'Quiz',
         {deckKey:deckKey}
